@@ -105,7 +105,6 @@ describe("Issue create", () => {
       cy.get(".ql-editor").should("have.text", "My bug description");
       cy.get('input[name="title"]').type("Bug");
       cy.get('input[name="title"]').should("have.value", "Bug");
-
       cy.get('[data-testid="select:type"]').click();
       cy.get('[data-testid="select-option:Bug"]')
         .wait(1000)
@@ -114,7 +113,6 @@ describe("Issue create", () => {
       cy.get('[data-testid="select:type"]').within(() => {
         cy.get('[data-testid="icon:bug"]').should("be.visible");
       });
-
       cy.get('[data-testid="select:reporterId"]').click();
       cy.get('[data-testid="select-option:Pickle Rick"]')
         .trigger("mouseover")
@@ -122,7 +120,6 @@ describe("Issue create", () => {
       cy.get('[data-testid="select:reporterId"]').within(() => {
         cy.get('[data-testid="avatar:Pickle Rick"]').should("be.visible");
       });
-
       cy.get('[data-testid="form-field:userIds"]').click();
       cy.get('[data-testid="select-option:Lord Gaben"]')
         .trigger("mouseover")
@@ -130,7 +127,6 @@ describe("Issue create", () => {
       cy.get('[data-testid="form-field:userIds"]').within(() => {
         cy.get('[data-testid="avatar:Lord Gaben"]').should("be.visible");
       });
-
       cy.get('[data-testid="select:priority"]').click();
       cy.get('[data-testid="select-option:Highest"]')
         .trigger("mouseover")
@@ -138,10 +134,8 @@ describe("Issue create", () => {
       cy.get('[data-testid="select:priority"]').within(() => {
         cy.get('[data-testid="icon:arrow-up"]').should("be.visible");
       });
-
       cy.get('button[type="submit"]').click();
     });
-
     cy.get('[data-testid="modal:issue-create"]').should("not.exist");
     cy.contains("Issue has been successfully created.").should("be.visible");
     cy.reload();
@@ -170,7 +164,6 @@ describe("Issue create", () => {
       cy.get(".ql-editor").should("have.text", randomSeveralWords);
       cy.get('input[name="title"]').type(randomSingleWord);
       cy.get('input[name="title"]').should("have.value", randomSingleWord);
-
       cy.get('[data-testid="select:type"]').click();
       cy.get('[data-testid="icon:close"]')
         .trigger("mouseover")
@@ -182,7 +175,6 @@ describe("Issue create", () => {
       cy.get('[data-testid="select:type"]').within(() => {
         cy.get('[data-testid="icon:task"]').should("be.visible");
       });
-
       cy.get('[data-testid="select:reporterId"]').click();
       cy.get('[data-testid="select-option:Baby Yoda"]')
         .trigger("mouseover")
@@ -190,7 +182,6 @@ describe("Issue create", () => {
       cy.get('[data-testid="select:reporterId"]').within(() => {
         cy.get('[data-testid="avatar:Baby Yoda"]').should("be.visible");
       });
-
       cy.get('[data-testid="select:priority"]').click();
       cy.get('[data-testid="select-option:Low"]')
         .trigger("mouseover")
@@ -198,10 +189,8 @@ describe("Issue create", () => {
       cy.get('[data-testid="select:priority"]').within(() => {
         cy.get('[data-testid="icon:arrow-down"]').should("be.visible");
       });
-
       cy.get('button[type="submit"]').click();
     });
-
     cy.get('[data-testid="modal:issue-create"]').should("not.exist");
     cy.contains("Issue has been successfully created.").should("be.visible");
     cy.reload();
