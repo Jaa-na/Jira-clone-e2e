@@ -1,5 +1,4 @@
-const getIssueDetailsModal = () =>
-  cy.get('[data-testid="modal:issue-details"]');
+const getIssueDetailModal = () => cy.get('[data-testid="modal:issue-details"]');
 
 describe("Issue deleting", () => {
   beforeEach(() => {
@@ -18,7 +17,7 @@ describe("Issue deleting", () => {
   });
 
   it("Test Case 1: Should delete the issue", function () {
-    getIssueDetailsModal().within(() => {
+    getIssueDetailModal().within(() => {
       cy.get('[data-testid="icon:trash"]')
         .trigger("mouseover")
         .trigger("click");
@@ -39,7 +38,7 @@ describe("Issue deleting", () => {
   });
 
   it.only("Test Case 2: Should cancel the issue deletion", function () {
-    getIssueDetailsModal().within(() => {
+    getIssueDetailModal().within(() => {
       cy.get('[data-testid="icon:trash"]')
         .trigger("mouseover")
         .trigger("click");
@@ -53,7 +52,7 @@ describe("Issue deleting", () => {
     });
     cy.get('[data-testid="modal:confirm"]').should("not.exist");
     cy.get('[data-testid="modal:issue-details"]').should("be.visible");
-    getIssueDetailsModal().within(() => {
+    getIssueDetailModal().within(() => {
       cy.get('button [data-testid="icon:close"]').click();
     });
     cy.get('[data-testid="modal:issue-details"]').should("not.exist");
