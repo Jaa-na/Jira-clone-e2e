@@ -18,18 +18,14 @@ describe("Issue deleting", () => {
 
   it("Test Case 1: Should delete the issue", function () {
     getIssueDetailModal().within(() => {
-      cy.get('[data-testid="icon:trash"]')
-        .trigger("mouseover")
-        .trigger("click");
+      cy.get('[data-testid="icon:trash"]').click();
     });
     cy.get('[data-testid="modal:confirm"]')
       .should("be.visible")
       .should("contain.text", "Are you sure you want to delete this issue?")
       .should("contain.text", "Once you delete, it's gone for good.");
     cy.get('[data-testid="modal:confirm"]').within(() => {
-      cy.contains("button", "Delete issue")
-        .trigger("mouseover")
-        .trigger("click");
+      cy.contains("button", "Delete issue").click();
     });
     cy.get('[data-testid="modal:confirm"]').should("not.exist");
     cy.get('[data-testid="modal:issue-details"]').should("not.exist");
@@ -39,9 +35,7 @@ describe("Issue deleting", () => {
 
   it.only("Test Case 2: Should cancel the issue deletion", function () {
     getIssueDetailModal().within(() => {
-      cy.get('[data-testid="icon:trash"]')
-        .trigger("mouseover")
-        .trigger("click");
+      cy.get('[data-testid="icon:trash"]').click();
     });
     cy.get('[data-testid="modal:confirm"]')
       .should("be.visible")
