@@ -62,7 +62,7 @@ describe("Issue comments creating, editing and deleting", () => {
       .should("not.exist");
   });
 
-  it.only("Assignment 1: Should add, edit, and delete a comment", () => {
+  it("Assignment 1: Should add, edit, and delete a comment", () => {
     const initialComment = "This is a new comment";
     const editedComment = "This is an edited comment";
     getIssueDetailsModal().within(() => {
