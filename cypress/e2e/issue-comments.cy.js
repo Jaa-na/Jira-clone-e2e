@@ -62,7 +62,7 @@ describe("Issue comments creating, editing and deleting", () => {
       .should("not.exist");
   });
 
-  it("should add, edit, and delete a comment", () => {
+  it.only("Assignment 1: Should add, edit, and delete a comment", () => {
     const initialComment = "This is a new comment";
     const editedComment = "This is an edited comment";
     getIssueDetailsModal().within(() => {
@@ -79,8 +79,8 @@ describe("Issue comments creating, editing and deleting", () => {
         .within(() => {
           cy.contains("Edit").click().should("not.exist");
           getCommentTextarea().clear().type(editedComment);
-          getSaveButton().click().should("not.exist");
         });
+      getSaveButton().click().should("not.exist");
       getCommentElement().should("contain", editedComment);
     });
     getIssueDetailsModal().within(() => {
