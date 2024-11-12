@@ -8,7 +8,7 @@ describe("Issue comments creating, editing and deleting", () => {
         cy.contains("This is an issue of type: Task.").click();
       });
   });
-
+  //test
   const getIssueDetailsModal = () =>
     cy.get('[data-testid="modal:issue-details"]');
   const getCommentElement = () => cy.get('[data-testid="issue-comment"]');
